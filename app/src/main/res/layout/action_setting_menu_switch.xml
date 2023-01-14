@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.SwitchCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/setting_menu_switch"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent"
+    android:clickable="false"
+    android:thumb="@drawable/shape_setting_menu_switch_thumb"
+    app:switchMinWidth="40dp"
+    app:track="@drawable/selector_setting_menu_switch_track" />

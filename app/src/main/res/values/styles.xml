@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="mowa_mainpage_top_text">
+        <item name="android:textSize">
+            20sp
+        </item>
+
+        <item name="android:letterSpacing">
+            -0.01
+        </item>
+
+        <item name="android:textColor">
+            #0AA66D
+        </item>
+    </style>
+
+    <style name="mowa_mainpage_normal_weather_icon">
+        <item name="android:textSize">
+            30sp
+        </item>
+
+        <item name="android:letterSpacing">
+            -0.01
+        </item>
+
+        <item name="android:textColor">
+            #000000
+        </item>
+
+    </style>
+
+    <style name="mowa_mainpage_normal_weather_text">
+        <item name="android:textSize">
+            10sp
+        </item>
+
+        <item name="android:letterSpacing">
+            -0.01
+        </item>
+
+        <item name="android:textColor">
+            #000000
+        </item>
+    </style>
+
+    <style name="mowa_mainpage_normal_Temperature_icon">
+        <item name="android:textSize">
+            30sp
+        </item>
+
+        <item name="android:letterSpacing">
+            -0.01
+        </item>
+
+        <item name="android:textColor">
+            #000000
+        </item>
+    </style>
+
+    <style name="mowa_mainpage_normal_Temperature_text">
+        <item name="android:textSize">
+            10sp
+        </item>
+
+        <item name="android:letterSpacing">
+            -0.01
+        </item>
+
+        <item name="android:textColor">
+            #000000
+        </item>
+
+    </style>
+
+    <style name="mowa_mainpage_normal_middle_box2_text">
+        <item name="android:textSize">
+            10sp
+        </item>
+
+        <item name="android:letterSpacing">
+            -0.01
+        </item>
+
+        <item name="android:textColor">
+            #000000
+        </item>
+
+    </style>
+
+    <style name="mowa_mainpage_normal_middle_box3_text">
+        <item name="android:textSize">
+            10sp
+        </item>
+
+        <item name="android:letterSpacing">
+            -0.01
+        </item>
+
+        <item name="android:textColor">
+            #000000
+        </item>
+
+    </style>
+
+    <style name="mowa_mainpage_normal_middle_box4_text">
+        <item name="android:textSize">
+            10sp
+        </item>
+
+        <item name="android:letterSpacing">
+            -0.01
+        </item>
+
+        <item name="android:textColor">
+            #000000
+        </item>
+
+    </style>
+
+    <style name="mowa_mainpage_normal_middle_box5_text">
+        <item name="android:textSize">
+            10sp
+        </item>
+
+        <item name="android:letterSpacing">
+            -0.01
+        </item>
+
+        <item name="android:textColor">
+            #000000
+        </item>
+
+    </style>
+
+    <style name="mowa_mainpage_normal_middle_box_wifi_text">
+        <item name="android:textSize">
+            10sp
+        </item>
+
+        <item name="android:letterSpacing">
+            -0.01
+        </item>
+
+        <item name="android:textColor">
+            #000000
+        </item>
+
+    </style>
+
+    <style name="mowa_mainpage_large_middle_box1_text1">
+        <item name="android:textSize">
+            16sp
+        </item>
+
+        <item name="android:letterSpacing">
+            -0.01
+        </item>
+
+        <item name="android:textColor">
+            #BFBFBF
+        </item>
+
+    </style>
+
+    <style name="mowa_mainpage_large_middle_box1_text2">
+        <item name="android:textSize">
+            25sp
+        </item>
+
+        <item name="android:letterSpacing">
+            -0.01
+        </item>
+
+        <item name="android:textColor">
+            #000000
+        </item>
+
+    </style>
+
+    <style name="mowa_mainpage_large_middle_box2_text">
+        <item name="android:textSize">
+            14sp
+        </item>
+
+        <item name="android:letterSpacing">
+            -0.01
+        </item>
+
+        <item name="android:textColor">
+            #FFFFFF
+        </item>
+
+    </style>
+
+    <style name="mowa_mainpage_large_middle_box3_text">
+        <item name="android:textSize">
+            14sp
+        </item>
+
+        <item name="android:letterSpacing">
+            -0.01
+        </item>
+
+        <item name="android:textColor">
+            #FFFFFF
+        </item>
+
+    </style>
+
+    <style name="mowa_mainpage_large_middle_box4_text">
+        <item name="android:textSize">
+            14sp
+        </item>
+
+        <item name="android:letterSpacing">
+            -0.03
+        </item>
+
+        <item name="android:textColor">
+            #FFFFFF
+        </item>
+
+    </style>
+
+    <style name="mowa_mainpage_large_middle_box5_text">
+        <item name="android:textSize">
+            14sp
+        </item>
+
+        <item name="android:letterSpacing">
+            -0.01
+        </item>
+
+        <item name="android:textColor">
+            #FFFFFF
+        </item>
+
+    </style>
+
+
+    <style name="mowa_green_color_text">
+        <item name="android:letterSpacing">
+            -0.01
+        </item>
+
+        <item name="android:textColor">
+            #0AA66D
+        </item>
+    </style>
+
+    <style name="mowa_black_color_text">
+        <item name="android:letterSpacing">
+            -0.01
+        </item>
+
+        <item name="android:textColor">
+            #000000
+        </item>
+    </style>
+
+    <style name="mowa_white_color_text">
+        <item name="android:letterSpacing">
+            -0.01
+        </item>
+
+        <item name="android:textColor">
+            #FFFFFF
+        </item>
+    </style>
+
+    <style name="mowa_hint_text">
+        <item name="android:textSize">
+            16sp
+        </item>
+        <item name="android:letterSpacing">
+            -0.01
+        </item>
+
+        <item name="android:textColor">
+            #C8C8C8
+        </item>
+    </style>
+
+    <style name="mowa_error_text">
+        <item name="android:letterSpacing">
+            -0.01
+        </item>
+
+        <item name="android:textColor">
+            #DA7676
+        </item>
+    </style>
+
+    <style name="ai_content">
+        <item name="android:textSize">
+            16sp
+        </item>
+
+        <item name="android:letterSpacing">
+            -0.01
+        </item>
+
+        <item name="android:textColor">
+            #000000
+        </item>
+
+    </style>
+
+    <style name="telephone_tab">
+        <item name="android:fontFamily">
+            @font/nanumgothic_extrabold
+        </item>
+        <item name="android:textSize">
+            16sp
+        </item>
+    </style>
+
+    <style name="view_telephone_tab1_content_left">
+
+        <item name="android:textSize">
+            16sp
+        </item>
+
+        <item name="android:textColor">
+            #001018
+        </item>
+
+    </style>
+
+    <style name="view_telephone_tab1_content_right">
+        <item name="android:textSize">
+            12sp
+        </item>
+
+        <item name="android:letterSpacing">
+            0.04
+        </item>
+
+        <item name="android:textColor">
+            #687787
+        </item>
+    </style>
+
+    <style name="view_telephone_tab2_content">
+        <item name="android:textSize">
+            16sp
+        </item>
+
+        <item name="android:textColor">
+            #001018
+        </item>
+
+    </style>
+
+    <style name="mowa_mainpage_normal_middle_box2_count_text">
+        <item name="android:textSize">
+            36sp
+        </item>
+
+        <item name="android:letterSpacing">
+            -0.01
+        </item>
+
+        <item name="android:textColor">
+            #000000
+        </item>
+    </style>
+
+    <style name="time_picker">
+        <item name="android:textSize">24sp</item>
+        <item name="android:fontFamily">@font/nanumgothic</item>
+        <item name="android:textColorPrimary">@color/gray</item>
+    </style>
+
+    <style name="popup_animation">
+        <item name="android:windowEnterAnimation">@anim/anim_popup_show</item>
+        <item name="android:windowExitAnimation">@anim/anim_popup_hide</item>
+    </style>
+
+    <style name="dialog" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="colorAccent">@color/black</item>
+        <item name="buttonBarNegativeButtonStyle">@style/buttonBarButtonStyle.Negative</item>
+        <item name="buttonBarPositiveButtonStyle">@style/buttonBarButtonStyle.Positive</item>
+    </style>
+
+    <style name="buttonBarButtonStyle" parent="Widget.AppCompat.Button.Borderless.Colored">
+    </style>
+
+    <style name="buttonBarButtonStyle.Negative">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="buttonBarButtonStyle.Positive">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+</resources>

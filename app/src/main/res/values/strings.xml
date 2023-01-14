@@ -1,0 +1,139 @@
+<resources>
+    <string name="app_name">MoWA</string>
+    <string name="app_description">Monitoring the Elder with Wi-Fi and AI speaker</string>
+
+    <!-- 공통 -->
+    <string name="notshow">다시 보지 않기</string>
+    <string name="title">제목</string>
+    <string name="content">내용</string>
+    <string name="check">확인</string>
+    <string name="set">설정</string>
+    <string name="unset">해제</string>
+    <string name="setting">설정</string>
+    <string name="wifi">Wi-Fi</string>
+    <string name="ai_speaker">AI Speaker</string>
+
+    <!-- home -->
+    <string name="home_main">12월의 기록</string>
+    <string name="home_weather_intro">오늘의 날씨는</string>
+
+    <string name="mowa_mainpage_normal_Temperature_icon">🌡️</string>
+    <string name="mowa_mainpage_normal_Temperature_text">오늘의 기온은 0℃</string>
+    <string name="home_warning_count">경고 발생 횟수</string>
+    <string name="home_activity_count">활동 권장 횟수</string>
+    <string name="home_speaker_count">대화하기 이용 횟수</string>
+    <string name="home_fall_count">넘어진 횟수</string>
+    <string name="speaker_main_title">대화하기</string>
+    <string name="speaket_basic_card_button">시청하기</string>
+    <string name="mowa_mainpage_normal_bottom_conversation">대화하기</string>
+    <string name="mowa_mainpage_normal_bottom_telephonebook">전화번호부</string>
+    <string name="mowa_mainpage_large_middle_box1_text1">저번 달 당신의 상태는 흐림</string>
+    <string name="mowa_mainpage_large_middle_box1_text2">당신의 상태는 맑음 ☀️</string>
+    <string name="mowa_mainpage_large_middle_box2_text">🚨 이번 달 경고 발생 횟수</string>
+    <string name="mowa_mainpage_large_middle_box3_text">이번 달 활동 권장 횟수</string>
+    <string name="mowa_mainpage_large_middle_box4_text">이번 달 대화하기 이용 횟수</string>
+    <string name="mowa_mainpage_large_middle_box5_text">이번 달 넘어짐 횟수</string>
+
+    <!-- setting -->
+    <string name="setting_title">앱 설정</string>
+    <string name="setting_alarm_title">알림 설정</string>
+    <string name="setting_alarm">알림 권한</string>
+    <string name="setting_alarm_time">방해 금지 시간 설정</string>
+    <string name="setting_account">계정/정보 관리</string>
+    <string name="setting_sensor">센서/기기 관리</string>
+    <string name="setting_logout">로그아웃</string>
+    <string name="setting_user_title">사용자 설정</string>
+    <string name="time_format">00:00</string>
+    <string name="start_time">시작 시간</string>
+    <string name="end_time">종료 시간</string>
+    <string name="setting_app_info">앱 정보</string>
+    <string name="setting_app_intro">앱 소개</string>
+    <string name="setting_guide">사용 방법 도움말</string>
+    <string name="setting_privacy">개인정보 처리방침</string>
+
+    <string name="mowa_login">로그인</string>
+    <string name="mowa_password">비밀번호</string>
+    <string name="mowa_password_hint">**********</string>
+    <string name="mowa_email">이메일</string>
+    <string name="mowa_email_eng">Email</string>
+    <string name="mowa_email_register">이메일 회원가입</string>
+    <string name="mowa_email_hint">이메일을 입력해주세요.</string>
+    <string name="mowa_email_hint_format">예: gachon@example.com</string>
+    <string name="mowa_register">회원가입</string>
+    <string name="mowa_name">이름</string>
+    <string name="mowa_name_hint">홍길동</string>
+    <string name="mowa_go_to_login"><u>로그인 하기</u></string>
+    <string name="mowa_google">Google</string>
+    <string name="mowa_already_member">이미 회원이신가요?</string>
+
+    <string name="intro_hello">안녕하세요</string>
+    <string name="intro_google_login">구글 로그인</string>
+
+    <string name="mowa_loginpage_welcome">MoWA에 오신 걸 환영합니다!</string>
+    <string name="mowa_loginpage_forget_password"><u>비밀번호를 잊으셨나요?</u></string>
+    <string name="mowa_loginpage_go_to_register"><u>회원가입 후 시작하기</u></string>
+    <string name="mowa_loginpage_not_member">아직 회원이 아니신가요?</string>
+    <string name="mowa_loginpage_error_msg">입력하신 이메일 혹은 비밀번호가 맞지 않습니다!</string>
+
+    <string name="mowa_registerpage_register_text">회원가입을 통해 <b>MoWA</b>의 모든 기능을 <n /> 확인해보세요! </string>
+
+    <string name="mowa_findpasswordpage_find_password">비밀번호 찾기</string>
+    <string name="mowa_findpasswordpage_find_password_text">회원가입 시 등록한 이메일 주소를 입력해 주세요!</string>
+    <string name="mowa_findpasswordpage_reset_password">비밀번호 재설정</string>
+
+    <string name="telephone_book">전화번호부</string>
+    <string name="telephone_book_institution">주변복지관/동사무소</string>
+    <string name="telephone_book_emergency_contact_information">비상연락처</string>
+    <string name="number">0</string>
+    <string name="wifi_ssid">WI-Fi SSID</string>
+
+    <string name="phone_book_name">이름</string>
+    <string name="phone_book_number_with_format">010–0000–0000</string>
+
+    <!-- introduction -->
+    <string name="introduction_description">MoWA는 당신의 건강과 안전에 도움을 주는 서비스입니다.</string>
+    <string name="introduction_mainfunction_title">주요 기능</string>
+    <string name="introduction_mainfunction1">와이파이 감지를 통한 가정 내 특정 상황 감지</string>
+    <string name="introduction_mainfunction2">AI 스피커를 상황 인식 지원자로 사용</string>
+    <string name="introduction_mainfunction3">사용자 정의를 위한 스마트폰 애플리케이션</string>
+    <string name="introduction_detailfunction_title">세부 기능</string>
+    <string name="introduction_detailfunction1_title">침입 감지</string>
+    <string name="introduction_detailfunction1_description">AI 스피커를 통해 침입자 발생 시 경고음 전달</string>
+    <string name="introduction_detailfunction2_title">낙상 감지</string>
+    <string name="introduction_detailfunction2_description">AI 스피커를 통해 사용자의 현재 상태 파악</string>
+    <string name="introduction_detailfunction3_title">움직임 감지</string>
+    <string name="introduction_detailfunction3_description">장시간 미동 시 활동 권장 및 추천</string>
+
+    <!-- sensor -->
+    <string name="sensor_title">지킴이들을 살펴 주세요.</string>
+    <string name="sensor_count_wifi">Wi-Fi 지킴이 개수</string>
+    <string name="sensor_count_speaker">AI Speaker 개수</string>
+    <string name="sensor_manage_room">거실 지킴이</string>
+    <string name="sensor_manage_bathroom">화장실 지킴이</string>
+    <string name="sensor_call">사용 방법에 대해 궁금하거나 고장이 났다면\n📞 여기를 클릭해 고객 센터에 전화해 주세요. 📞</string>
+
+    <!-- policy -->
+    <string name="policy_first_description">MoWA(이하 모와)는 고객님의 개인정보를 중요시하며, "정보통신망 이용촉진 및 정보보호"에 관한 법률을 준수하고 있습니다.</string>
+    <string name="policy_second_description">MoWA(이하 모와)는 개인정보취급방침을 통하여 고객님께서 제공하시는 개인정보가 어떠한 용도와 방식으로 이용되고 있으며, 개인정보보호를 위해 어떠한 조치가 취해지고 있는지 알려드립니다. 관계 법령 및 개인정보 취급방침에 따라 사용자 개인정보 보호에 최선을 다합니다.</string>
+    <string name="policy_a_title">가. 수집하는 개인정보의 항목 및 수집방법</string>
+    <string name="policy_a_description">RE: CHAT앱(이하 리챗)은 개인을 식별할 수 있는 개인정보를 수집하지 않습니다.\n단, 제 3자의 서비스인 광고 및 분석 서비스에 의해 광고 식별자인 Android 광고 ID가 수집될 수도 있습니다. 광고 식별자는 미 영구적이고 비 개인적인 식별자로써 개인을 식별할 수 없으며 식별한 정보를 별도로 수집, 보관 하지 않습니다.</string>
+    <string name="policy_b_title">나. 개인정보의 수집 및 이용목적메세지</string>
+    <string name="policy_b_description">MoWA(이하 모와)는 개인정보를 수집하지 않습니다.</string>
+    <string name="policy_c_title">다. 개인정보 제공 및 공유</string>
+    <string name="policy_c_description">MoWA(이하 모와)는 개인정보를 공유 및 제3자에게 제공하지 않습니다.</string>
+    <string name="policy_d_title">라. 수집한 개인정보의 취급 위탁</string>
+    <string name="policy_d_description">MoWA(이하 모와)는 개인정보를 수집, 이용, 보유하지 않습니다.</string>
+    <string name="policy_e_title">마. 개인정보의 보유 및 이용기간</string>
+    <string name="policy_e_description">MoWA(이하 모와) 앱은 보유할 개인정보가 없습니다.</string>
+    <string name="policy_f_title">바. 개인정보 파기절차 및 방법</string>
+    <string name="policy_f_description">MoWA(이하 모와) 앱은 파기할 개인정보가 없습니다.</string>
+    <string name="policy_g_title">사. 개인정보 자동 수집 장치의 설치․운영 및 거부에 관한 사항</string>
+    <string name="policy_g_description">MoWA(이하 모와) 앱은 개인정보 자동 수집 장치를 운영하지 않습니다.</string>
+    <string name="policy_h_title">아. 개인정보관리책임자</string>
+    <string name="policy_h_description">MoWA(이하 모와) 앱은 고객의 개인정보를 보호하고 개인정보와 관련한 불만을 처리하기 위하여 아래와 같이 관련 부서 및 개인정보관리책임자를 지정하고 있습니다.\n성명: 유경준, 임찬호, 표지성, 남선우\n직책: MoWA 개발자\n연락처: gachon.mowa@gmail.com</string>
+    <string name="policy_i_title"> </string>
+    <string name="policy_i_description">귀하께서는 MoWA의 서비스를 이용하시며 발생하는 모든 개인정보보호 관련 민원을 개인정보관리책임자에게 신고하실 수 있습니다. MoWA 앱은 이용자들의 신고사항에 대해 신속하게 충분한 답변을 드릴 것입니다.\n기타 개인정보침해에 대한 신고나 상담이 필요하신 경우에는 아래 기관에 문의하시기 바랍니다.\n1.개인분쟁조정위원회 (www.1336.or.kr/1336)\n2.정보보호마크인증위원회 (www.eprivacy.or.kr/02–580–0533~4)\n3.대검찰청 인터넷범죄수사센터 (http://icic.sppo.go.kr/02–3480–3600)\n4.경찰청 사이버테러대응센터 (www.ctrc.go.kr/02–392–0330)</string>
+    <string name="policy_j_title">자.</string>
+    <string name="policy_j_description">개인정보 처리방침 변경일 개인정보처리방침은 시행일로부터 적용되며, 법령 및 방침에 따른 변경내용의 추가, 삭제 및 정정이 있는 경우에는 변경사항의 시행 전 또는 후 어플리케이션 고객센터/도움말을 통하여 고지할 것입니다. 이 개인정보처리방침은 2023년 6월 14일부터 적용됩니다.</string>
+
+</resources>

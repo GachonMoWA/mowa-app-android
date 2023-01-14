@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="30dp"
+    android:background="@drawable/bg_rectangle_round_white">
+
+    <TextView
+        android:id="@+id/timepicker_title_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/nanumgothic_extrabold"
+        android:text="@string/setting_alarm_time"
+        android:textColor="@color/mowa_green"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/timepicker_start_time_tv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <TextView
+        android:id="@+id/timepicker_start_time_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@color/mowa_green"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:text="@string/start_time"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@id/timepicker_start_time_tp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/timepicker_title_tv" />
+
+    <TimePicker
+        android:id="@+id/timepicker_start_time_tp"
+        style="@style/time_picker"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:timePickerMode="spinner"
+        app:layout_constraintBottom_toTopOf="@id/timepicker_end_time_tv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/timepicker_start_time_tv" />
+
+    <TextView
+        android:id="@+id/timepicker_end_time_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/mowa_green"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:text="@string/end_time"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@id/timepicker_end_time_tp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/timepicker_start_time_tp" />
+
+    <TimePicker
+        android:id="@+id/timepicker_end_time_tp"
+        style="@style/time_picker"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:timePickerMode="spinner"
+        app:layout_constraintBottom_toTopOf="@id/timepicker_btn_ll"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/timepicker_end_time_tv" />
+
+    <LinearLayout
+        android:id="@+id/timepicker_btn_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:gravity="center"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/timepicker_end_time_tp"
+        app:layout_constraintVertical_chainStyle="packed">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/timepicker_set_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/bg_rectangle_round_green_stroke"
+            android:letterSpacing="-0.09"
+            android:padding="0dp"
+            android:text="@string/set"
+            android:textColor="@color/mowa_green"
+            android:textSize="18sp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/timepicker_unset_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/bg_rectangle_round_green_stroke"
+            android:letterSpacing="-0.09"
+            android:padding="0dp"
+            android:text="@string/unset"
+            android:textColor="@color/mowa_green"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

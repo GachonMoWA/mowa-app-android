@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <View
+        android:id="@+id/home_top_space_v"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintBottom_toTopOf="@id/home_title_tv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <TextView
+        android:id="@+id/home_title_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="5dp"
+        android:fontFamily="@font/nanumgothic_extrabold"
+        android:text="@string/sensor_title"
+        android:textAlignment="center"
+        android:textAppearance="@style/mowa_mainpage_top_text"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toTopOf="@id/home_title_line_v"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/home_top_space_v"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <View
+        android:id="@+id/home_title_line_v"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/ic_horizontal_line_green"
+        app:layout_constraintBottom_toTopOf="@id/home_container_cl"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/home_title_tv" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/home_container_cl"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/home_title_line_v">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/home_warning_count_cl"
+            android:layout_width="140dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/bg_rectangle_round_white_small"
+            app:layout_constraintBottom_toTopOf="@id/home_speaker_count_cl"
+            app:layout_constraintEnd_toStartOf="@id/home_activity_count_cl"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/home_warning_count_title_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/bg_rectangle_round_innershadow_white"
+                android:fontFamily="@font/nanumgothic"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="@string/home_warning_count"
+                android:textAlignment="center"
+                android:textAppearance="@style/mowa_mainpage_normal_middle_box2_text"
+                app:layout_constraintBottom_toTopOf="@id/home_warning_count_tv"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/home_warning_count_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/nanumgothic"
+                android:text="@string/number"
+                android:textAlignment="center"
+                android:textAppearance="@style/mowa_mainpage_normal_middle_box2_count_text"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/home_warning_count_title_tv" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/home_activity_count_cl"
+            android:layout_width="140dp"
+            android:layout_height="100dp"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/bg_rectangle_round_white_small"
+            app:layout_constraintBottom_toBottomOf="@id/home_warning_count_cl"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/home_warning_count_cl"
+            app:layout_constraintTop_toTopOf="@id/home_warning_count_cl">
+
+            <TextView
+                android:id="@+id/home_activity_count_title_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/bg_rectangle_round_innershadow_white"
+                android:fontFamily="@font/nanumgothic"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="@string/home_activity_count"
+                android:textAlignment="center"
+                android:textAppearance="@style/mowa_mainpage_normal_middle_box2_text"
+                app:layout_constraintBottom_toTopOf="@id/home_activity_count_tv"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/home_activity_count_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/nanumgothic"
+                android:text="@string/number"
+                android:textAlignment="center"
+                android:textAppearance="@style/mowa_mainpage_normal_middle_box2_count_text"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/home_activity_count_title_tv" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/home_speaker_count_cl"
+            android:layout_width="140dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/bg_rectangle_round_white_small"
+            app:layout_constraintBottom_toTopOf="@id/home_wifi_cl"
+            app:layout_constraintEnd_toStartOf="@id/home_fall_count_cl"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/home_warning_count_cl">
+
+            <TextView
+                android:id="@+id/home_speaker_count_title_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/bg_rectangle_round_innershadow_white"
+                android:fontFamily="@font/nanumgothic"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="@string/home_speaker_count"
+                android:textAlignment="center"
+                android:textAppearance="@style/mowa_mainpage_normal_middle_box2_text"
+                app:layout_constraintBottom_toTopOf="@id/home_speaker_count_tv"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/home_speaker_count_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/nanumgothic"
+                android:text="@string/number"
+                android:textAlignment="center"
+                android:textAppearance="@style/mowa_mainpage_normal_middle_box2_count_text"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/home_speaker_count_title_tv" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/home_fall_count_cl"
+            android:layout_width="140dp"
+            android:layout_height="100dp"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/bg_rectangle_round_white_small"
+            app:layout_constraintBottom_toBottomOf="@id/home_speaker_count_cl"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/home_speaker_count_cl"
+            app:layout_constraintTop_toTopOf="@id/home_speaker_count_cl">
+
+            <TextView
+                android:id="@+id/home_fall_count_title_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/bg_rectangle_round_innershadow_white"
+                android:fontFamily="@font/nanumgothic"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="@string/home_fall_count"
+                android:textAlignment="center"
+                android:textAppearance="@style/mowa_mainpage_normal_middle_box2_text"
+                app:layout_constraintBottom_toTopOf="@id/home_fall_count_tv"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/home_fall_count_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/nanumgothic"
+                android:text="@string/number"
+                android:textAlignment="center"
+                android:textAppearance="@style/mowa_mainpage_normal_middle_box2_count_text"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/home_fall_count_title_tv" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/home_wifi_cl"
+            android:layout_width="140dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="?attr/actionBarSize"
+            android:background="@drawable/bg_rectangle_round_white_small"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/home_ai_speaker_cl"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/home_speaker_count_cl">
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/home_wifi_switch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="-5dp"
+                android:checked="true"
+                android:minWidth="30dp"
+                android:thumb="@drawable/shape_home_switch_thumb"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:track="@drawable/selector_home_switch_track" />
+
+            <View
+                android:id="@+id/home_wifi_v"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/ic_wifi_green"
+                app:layout_constraintBottom_toTopOf="@id/home_wifi_tv"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+            <TextView
+                android:id="@+id/home_wifi_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="10dp"
+                android:fontFamily="@font/nanumgothic"
+                android:gravity="center"
+                android:text="@string/wifi_ssid"
+                android:textAppearance="@style/mowa_mainpage_normal_middle_box_wifi_text"
+                android:textSize="9sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/home_wifi_v"
+                tools:ignore="SmallSp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/home_ai_speaker_cl"
+            android:layout_width="140dp"
+            android:layout_height="100dp"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/bg_rectangle_round_white_small"
+            app:layout_constraintBottom_toBottomOf="@id/home_wifi_cl"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/home_wifi_cl"
+            app:layout_constraintTop_toTopOf="@id/home_wifi_cl">
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/home_ai_speaker_switch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="-5dp"
+                android:minWidth="30dp"
+                android:thumb="@drawable/shape_home_switch_thumb"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:track="@drawable/selector_home_switch_track" />
+
+            <View
+                android:id="@+id/home_ai_speaker_v"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/ic_speaker_black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

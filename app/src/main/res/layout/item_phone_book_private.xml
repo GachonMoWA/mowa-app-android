@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp">
+
+    <ImageView
+        android:id="@+id/item_phone_book_private_profile_tv"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:background="@drawable/ic_person_black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/item_phone_book_private_name_tv"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/item_phone_book_private_name_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/nanumgothic_bold"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:text="@string/phone_book_name"
+        android:textAppearance="@style/view_telephone_tab2_content"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@id/item_phone_book_private_profile_tv"
+        app:layout_constraintEnd_toStartOf="@id/item_phone_book_private_is_emergency_cb"
+        app:layout_constraintStart_toEndOf="@id/item_phone_book_private_profile_tv"
+        app:layout_constraintTop_toTopOf="@id/item_phone_book_private_profile_tv" />
+
+    <CheckBox
+        android:id="@+id/item_phone_book_private_is_emergency_cb"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="10dp"
+        android:buttonTint="@color/black"
+        app:layout_constraintBottom_toBottomOf="@id/item_phone_book_private_profile_tv"
+        app:layout_constraintEnd_toStartOf="@id/item_phone_book_private_call_iv"
+        app:layout_constraintStart_toEndOf="@id/item_phone_book_private_name_tv"
+        app:layout_constraintTop_toTopOf="@id/item_phone_book_private_profile_tv" />
+
+    <ImageView
+        android:id="@+id/item_phone_book_private_call_iv"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="10dp"
+        android:background="@drawable/ic_telephone_black"
+        app:layout_constraintBottom_toBottomOf="@id/item_phone_book_private_profile_tv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/item_phone_book_private_is_emergency_cb"
+        app:layout_constraintTop_toTopOf="@id/item_phone_book_private_profile_tv" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
