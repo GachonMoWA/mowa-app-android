@@ -79,10 +79,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
         // 현재 날짜에 알맞는 글자를 화면에 띄운다.
         binding.homeTitleTv.text = "${month}월의 기록"
 
-        initService()
-        initLocation()
-        initWiFi()
-        initClickListener()
+//        initService()
+//        initLocation()
+//        initWiFi()
+//        initClickListener()
         statsThread.start()
     }
 
@@ -97,6 +97,15 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
             binding.homeSpeakerCountTv.text = activityStats.speakerCount.toString()
             binding.homeFallCountTv.text = activityStats.fallCount.toString()
         })
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        initService()
+        initLocation()
+        initWiFi()
+        initClickListener()
     }
 
     override fun onPause() {
@@ -269,7 +278,15 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
     private fun initWiFi() {
         CoroutineScope(Dispatchers.Main).launch {
             initWifiManager()
-            binding.homeWifiTv.text = wifiSsid
+
+            // Wi-Fi SSID 값을 가져오지 못했을 때에 맞는 처리를 해준다.
+            Log.d(TAG, "initWiFi/wifiSsid: $wifiSsid")
+            if (wifiSsid == "<unknown ssid>") {
+                initWifiManager()
+            }
+            else {
+                binding.homeWifiTv.text = wifiSsid
+            }
         }
     }
 

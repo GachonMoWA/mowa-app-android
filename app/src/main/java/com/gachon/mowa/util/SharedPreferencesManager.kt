@@ -114,3 +114,7 @@ fun getLongitude(): Double {
         longitude.toDouble()
     }
 }
+
+/**
+ * Wi-Fi SSID
+ */
