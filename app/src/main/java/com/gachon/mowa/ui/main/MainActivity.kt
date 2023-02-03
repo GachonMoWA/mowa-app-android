@@ -5,6 +5,9 @@ import ai.api.AIDataService
 import ai.api.model.AIRequest
 import android.Manifest
 import android.content.Context
+import android.location.Location
+import android.location.LocationListener
+import android.location.LocationManager
 import android.util.Log
 import android.view.*
 import android.widget.ImageView
@@ -26,9 +29,10 @@ import com.gachon.mowa.ui.login.LoginActivity
 import com.gachon.mowa.ui.main.home.HomeFragment
 import com.gachon.mowa.ui.main.speaker.SpeakerFragment
 import com.gachon.mowa.ui.main.phonebook.PhoneBookFragment
+import com.gachon.mowa.ui.main.phonebook.content.WelfareCenterFragment
 import com.gachon.mowa.ui.policy.PolicyActivity
 import com.gachon.mowa.ui.sensor.SensorActivity
-import com.gachon.mowa.util.ApplicationClass
+import com.gachon.mowa.util.*
 import com.gachon.mowa.util.ApplicationClass.Companion.PERMISSIONS_REQUEST_READ_LOCATION
 import com.gachon.mowa.util.ApplicationClass.Companion.TIME_PICKER_INTERVAL
 import com.gachon.mowa.util.ApplicationClass.Companion.credentials
@@ -42,7 +46,6 @@ import com.gachon.mowa.util.ApplicationClass.Companion.showToast
 import com.gachon.mowa.util.ApplicationClass.Companion.startHour
 import com.gachon.mowa.util.ApplicationClass.Companion.startMinute
 import com.gachon.mowa.util.ApplicationClass.Companion.uuid
-import com.gachon.mowa.util.isAlarmPermission
 import com.google.android.material.navigation.NavigationView
 import com.google.api.gax.core.FixedCredentialsProvider
 import com.google.auth.oauth2.AccessToken
@@ -74,7 +77,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
             Manifest.permission.RECORD_AUDIO,
             Manifest.permission.CALL_PHONE
         )
-
     }
 
     lateinit var contextMain: Context
@@ -82,6 +84,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
     private lateinit var homeMenuItem: MenuItem
     private lateinit var roomDatabase: AppDatabase
     private lateinit var mPopupWindow: PopupWindow
+    private lateinit var locationManager: LocationManager
+    private lateinit var gpsListener: GPSListener
 
     /**
      * onCreate 이후에 추가할 작업들을 넣어준다.
@@ -100,7 +104,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
         initBottomNavigationView()
         initDrawerLayout()
         initClickListener()
-
         initDialogflow()
     }
 
@@ -118,6 +121,9 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
             // 알림 권한이 허용되어 있지 않은 경우
             drawerSwitch.isChecked = false
         }
+
+        // FIXME: 일단 여기에 WelfareCenterFragment에서 호출한 메서드를 호출하도록 변경
+        startLocationService()
     }
 
     /**
@@ -158,7 +164,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
 
         // 이때 actionView 부분에서 오류가 발생할 때 레이아웃 XML 코드에서 "app":actionLayout으로 알맞게 되어 있는지 확인할 것
         drawerSwitch =
-            menuItem.actionView.findViewById(R.id.setting_menu_switch) as SwitchCompat
+            menuItem.actionView?.findViewById(R.id.setting_menu_switch) as SwitchCompat
     }
 
     /**
@@ -387,5 +393,41 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
         }.start()
 
         return credentials.accessToken
+    }
+
+    /**
+     * 사용자의 위치 정보를 받아오는 리스너
+     */
+    private fun startLocationService() {
+        locationManager = this.getSystemService(Context.LOCATION_SERVICE) as LocationManager
+
+        try {
+            gpsListener = GPSListener()
+
+            // Main thread에서 만들어져야 한다.
+            locationManager.requestLocationUpdates(
+                LocationManager.NETWORK_PROVIDER,
+                0,
+                0f,
+                gpsListener
+            )
+        } catch (e: SecurityException) {
+            e.printStackTrace()
+        }
+    }
+
+    /**
+     * 사용자 위치 정보(위도, 경도)를 받아온다.
+     * 위치를 받아오는 것이 성공하면 날씨 API를 받아온다.
+     */
+    inner class GPSListener : LocationListener {
+        override fun onLocationChanged(p0: Location) {
+            setLatitude(p0.latitude.toString())
+            setLongitude(p0.longitude.toString())
+
+            Log.d(WelfareCenterFragment.TAG, "GPSListener/onLocationChanged/latitude: ${getLatitude()}, longitude: ${getLongitude()}")
+
+            locationManager.removeUpdates(gpsListener)
+        }
     }
 }

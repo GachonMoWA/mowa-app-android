@@ -28,6 +28,8 @@ import com.gachon.mowa.data.remote.weather.OpenWeatherService
 import com.gachon.mowa.data.remote.weather.OpenWeatherView
 import com.gachon.mowa.databinding.FragmentHomeBinding
 import com.gachon.mowa.util.ApplicationClass.Companion.showToast
+import com.gachon.mowa.util.getLatitude
+import com.gachon.mowa.util.getLongitude
 import com.gachon.mowa.util.getUserEmail
 import com.gachon.mowa.viewmodel.StatsViewModel
 import kotlinx.coroutines.CoroutineScope
@@ -48,14 +50,12 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
 
     private var todayWeather: String = ""
     private var todayTemperature: Float = 0F
-    private var latitude: Double = 0.0
-    private var longitude: Double = 0.0
+//    private var latitude: Double = 0.0
+//    private var longitude: Double = 0.0
     private var wifiSsid: String = ""
     private var dateTime: String = ""
 
 //    private lateinit var binding: FragmentHomeBinding
-    private lateinit var locationManager: LocationManager
-    private lateinit var gpsListener: GPSListener
 
     // API
     private lateinit var openWeatherService: OpenWeatherService
@@ -191,51 +191,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
         CoroutineScope(Dispatchers.Main).launch {
             /* 위치 정보 -> 날씨 정보 API -> 뷰에 반영 */
 
-            // 위치 정보
-            startLocationService()
-
             // 날씨 정보 API
             initOpenWeatherService()
         }
-    }
-
-    /**
-     * 사용자의 위치 정보를 받아오는 리스너
-     */
-    private fun startLocationService() {
-        locationManager = requireActivity().getSystemService(LOCATION_SERVICE) as LocationManager
-
-        try {
-            gpsListener = GPSListener()
-
-            // Main thread에서 만들어져야 한다.
-            locationManager.requestLocationUpdates(
-                LocationManager.NETWORK_PROVIDER,
-                0,
-                0f,
-                gpsListener
-            )
-        } catch (e: SecurityException) {
-            e.printStackTrace()
-        }
-    }
-
-    /**
-     * 사용자 위치 정보(위도, 경도)를 받아온다.
-     * 위치를 받아오는 것이 성공하면 날씨 API를 받아온다.
-     */
-    inner class GPSListener : LocationListener {
-        override fun onLocationChanged(p0: Location) {
-            latitude = p0.latitude
-            longitude = p0.longitude
-
-            locationManager.removeUpdates(gpsListener)
-        }
-        //컴파일 에러 방지
-        override fun onProviderDisabled(provider: String) {}
-        override fun onProviderEnabled(provider: String) {}
-        override fun onStatusChanged(provider: String?, status: Int, extras: Bundle?) {}
-
     }
 
     /**
@@ -244,7 +202,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
      */
     private suspend fun initOpenWeatherService() {
         withContext(Dispatchers.IO) {
-            openWeatherService.getOpenWeather(this@HomeFragment, latitude, longitude)
+            openWeatherService.getOpenWeather(this@HomeFragment, getLatitude(), getLongitude())
         }
     }
 

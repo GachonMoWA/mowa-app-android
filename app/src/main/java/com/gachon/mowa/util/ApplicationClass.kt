@@ -45,6 +45,8 @@ class ApplicationClass : Application() {
         const val TAG_GUIDE_MODE: String = "GUIDE_MODE"
         const val TAG_USER_EMAIL: String = "USER_EMAIL"
         const val TAG_USER_NAME: String = "USER_NAME"
+        const val TAG_LONGITUDE: String = "LOCATION_LONGITUDE"
+        const val TAG_LATITUDE: String = "LOCATION_LATITUDE"
 
         // Permission
         const val PERMISSIONS_REQUEST_READ_LOCATION = 0x00000001
