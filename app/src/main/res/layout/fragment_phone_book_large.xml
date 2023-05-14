@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <View
+        android:id="@+id/phone_book_top_space_v"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@android:color/transparent"
+        app:flow_verticalBias="0.0"
+        app:layout_constraintBottom_toTopOf="@id/phone_book_title_tv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <TextView
+        android:id="@+id/phone_book_title_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="5dp"
+        android:fontFamily="@font/nanumgothic_extrabold"
+        android:gravity="center"
+        android:text="@string/telephone_book"
+        android:textAppearance="@style/mowa_mainpage_top_text"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toTopOf="@id/phone_book_title_line_v"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/phone_book_top_space_v"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <View
+        android:id="@+id/phone_book_title_line_v"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/ic_horizontal_line_green"
+        app:layout_constraintBottom_toTopOf="@id/phone_book_tl"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/phone_book_title_tv" />
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/phone_book_tl"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:background="@drawable/bg_phonebook"
+        android:elevation="3dp"
+        app:flow_horizontalAlign="center"
+        app:layout_constraintBottom_toTopOf="@id/phone_book_vp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/phone_book_title_line_v"
+        app:tabBackground="@drawable/selector_phonebook_tap"
+        app:tabGravity="center"
+        app:tabIndicator="@null"
+        app:tabMode="scrollable"
+        app:tabRippleColor="@null"
+        app:tabSelectedTextColor="@color/white"
+        app:tabTextAppearance="@style/telephone_tab"
+        app:tabTextColor="#4E5D6B" />
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/phone_book_vp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/phone_book_tl" />
+
+    <!--    <View-->
+    <!--        android:id="@+id/phone_book_bottom_space_v"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="?attr/actionBarSize"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/phone_book_vp" />-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -27,9 +27,12 @@ import com.gachon.mowa.ui.guide.GuideActivity
 import com.gachon.mowa.ui.introduction.IntroductionActivity
 import com.gachon.mowa.ui.login.LoginActivity
 import com.gachon.mowa.ui.main.home.HomeFragment
+import com.gachon.mowa.ui.main.home.HomeLargeFragment
 import com.gachon.mowa.ui.main.speaker.SpeakerFragment
 import com.gachon.mowa.ui.main.phonebook.PhoneBookFragment
+import com.gachon.mowa.ui.main.phonebook.PhoneBookLargeFragment
 import com.gachon.mowa.ui.main.phonebook.content.WelfareCenterFragment
+import com.gachon.mowa.ui.main.speaker.SpeakerLargeFragment
 import com.gachon.mowa.ui.policy.PolicyActivity
 import com.gachon.mowa.ui.sensor.SensorActivity
 import com.gachon.mowa.util.*
@@ -80,9 +83,9 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
     }
 
     lateinit var contextMain: Context
+    private lateinit var screenModeSwitch: SwitchCompat
     private lateinit var drawerSwitch: SwitchCompat
     private lateinit var homeMenuItem: MenuItem
-    private lateinit var roomDatabase: AppDatabase
     private lateinit var mPopupWindow: PopupWindow
     private lateinit var locationManager: LocationManager
     private lateinit var gpsListener: GPSListener
@@ -93,6 +96,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
     override fun initAfterBinding() {
         homeMenuItem = binding.mainBnvL.mainBnv.menu.getItem(1)
         binding.mainBnvL.mainBnvCenterIv.bringToFront()
+        screenModeSwitch = binding.mainBnvL.mainBnvSc
 
         // 권한 허용
         ActivityCompat.requestPermissions(
@@ -131,24 +135,42 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
      * 각 아이콘을 클릭하면 해당하는 fragment를 띄워 보여준다.
      */
     private fun initBottomNavigationView() {
-        // 디폴트로는 홈 화면을 보여준다.
         // 여기서 isChecked = ture를 해야만 홈이 아닌 나머지 두 개의 아이콘(speaker, phone book)에 표시가 되지 않는다.
         homeMenuItem.isChecked = true
-        replaceFragment(HomeFragment())
+
+        // 디폴트로는 홈 화면을 보여준다.
+        if (getScreenMode() == 0) {
+            replaceFragment(HomeFragment())
+        }
+        else {
+            replaceFragment(HomeLargeFragment())
+        }
 
         // 클릭 리스너를 정의한다.
         binding.mainBnvL.mainBnv.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.bnv_speaker_item -> {
                     // speaker 아이콘을 클릭했을 때 SpeakerFragment를 띄운다.
-                    replaceFragment(SpeakerFragment())
-                    return@setOnItemSelectedListener true
+                    if (getScreenMode() == 0) {
+                        replaceFragment(SpeakerFragment())
+                        return@setOnItemSelectedListener true
+                    }
+                    else {
+                        replaceFragment(SpeakerLargeFragment())
+                        return@setOnItemSelectedListener true
+                    }
                 }
 
                 R.id.bnv_telephone_book_item -> {
                     // phone book 아이콘을 클릭했을 때 PhoneBookFragment를 띄운다.
-                    replaceFragment(PhoneBookFragment())
-                    return@setOnItemSelectedListener true
+                    if (getScreenMode() == 0) {
+                        replaceFragment(PhoneBookFragment())
+                        return@setOnItemSelectedListener true
+                    }
+                    else {
+                        replaceFragment(PhoneBookLargeFragment())
+                        return@setOnItemSelectedListener true
+                    }
                 }
             }
             false
@@ -251,6 +273,20 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
         headerView.findViewById<ImageView>(R.id.main_header_iv).setOnClickListener {
             // 설정 메뉴창을 닫습니다.
             binding.mainDl.closeDrawer(GravityCompat.START)
+        }
+
+        // 상단의 스위치 버튼을 클릭했을 때
+        binding.mainBnvL.mainBnvSc.setOnClickListener {
+            if (screenModeSwitch.isChecked) {
+                // 만약 screen mode가 1인 경우 (large mode)
+                setScreenMode(0)
+                screenModeSwitch.toggle()
+            }
+            else {
+                // 만약 screen mode가 0인 경우 (default mode)
+                setScreenMode(1)
+                screenModeSwitch.toggle()
+            }
         }
     }
 
