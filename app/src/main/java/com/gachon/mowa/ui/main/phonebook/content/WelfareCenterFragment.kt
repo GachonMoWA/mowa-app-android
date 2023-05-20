@@ -1,15 +1,9 @@
 package com.gachon.mowa.ui.main.phonebook.content
 
-import android.content.Context
 import android.location.Geocoder
-import android.location.Location
-import android.location.LocationListener
-import android.location.LocationManager
 import android.util.Log
 import android.view.View
-import android.widget.Toast
 import com.gachon.mowa.base.BaseFragment
-import com.gachon.mowa.data.local.AppDatabase
 import com.gachon.mowa.data.remote.welfarecenter.WelfareCenter
 import com.gachon.mowa.data.remote.welfarecenter.WelfareCenterService
 import com.gachon.mowa.data.remote.welfarecenter.WelfareCenterView
@@ -17,10 +11,6 @@ import com.gachon.mowa.databinding.FragmentWelfareCenterBinding
 import com.gachon.mowa.util.ApplicationClass.Companion.showToast
 import com.gachon.mowa.util.getLatitude
 import com.gachon.mowa.util.getLongitude
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import net.daum.mf.map.api.MapPOIItem
 import net.daum.mf.map.api.MapPoint
 import net.daum.mf.map.api.MapView
@@ -84,7 +74,7 @@ class WelfareCenterFragment :
         /* 역지오코딩 (위도, 경도 -> 시군구명) */
 
         val geoCoder = Geocoder(requireContext(), Locale.getDefault())
-        val addresses = geoCoder.getFromLocation(getLatitude(), getLongitude(), 10)
+        val addresses = geoCoder.getFromLocation(getLatitude(), getLongitude(), 100)
         Log.d(TAG, "initWelfareCenterService/addresses: $addresses")
 
         if (addresses != null) {
