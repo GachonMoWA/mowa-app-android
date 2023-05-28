@@ -1,7 +1,6 @@
 package com.gachon.mowa.ui.main.phonebook.content
 
 import android.annotation.SuppressLint
-import android.app.Activity.RESULT_OK
 import android.content.Intent
 import android.database.Cursor
 import android.net.Uri
@@ -15,7 +14,6 @@ import com.gachon.mowa.data.local.AppDatabase
 import com.gachon.mowa.data.local.phonebook.PhoneBook
 import com.gachon.mowa.databinding.FragmentMyPhoneBookBinding
 import com.gachon.mowa.databinding.ItemPhoneBookPrivateBinding
-import com.gachon.mowa.ui.login.LoginActivity
 
 class MyPhoneBookFragment :
     BaseFragment<FragmentMyPhoneBookBinding>(FragmentMyPhoneBookBinding::inflate) {

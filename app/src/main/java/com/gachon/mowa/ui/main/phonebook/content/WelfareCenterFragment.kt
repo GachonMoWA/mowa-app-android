@@ -74,7 +74,7 @@ class WelfareCenterFragment :
         /* 역지오코딩 (위도, 경도 -> 시군구명) */
 
         val geoCoder = Geocoder(requireContext(), Locale.getDefault())
-        val addresses = geoCoder.getFromLocation(getLatitude(), getLongitude(), 100)
+        val addresses = geoCoder.getFromLocation(getLatitude(), getLongitude(), 10)
         Log.d(TAG, "initWelfareCenterService/addresses: $addresses")
 
         if (addresses != null) {

@@ -1,8 +1,5 @@
 package com.gachon.mowa.ui.main
 
-import ai.api.AIConfiguration
-import ai.api.AIDataService
-import ai.api.model.AIRequest
 import android.Manifest
 import android.content.Context
 import android.location.Location
@@ -20,21 +17,16 @@ import androidx.core.app.ActivityCompat
 import androidx.core.view.GravityCompat
 import com.gachon.mowa.R
 import com.gachon.mowa.base.BaseActivity
-import com.gachon.mowa.data.local.AppDatabase
 import com.gachon.mowa.databinding.ActivityMainBinding
 import com.gachon.mowa.ui.account.AccountActivity
 import com.gachon.mowa.ui.guide.GuideActivity
 import com.gachon.mowa.ui.introduction.IntroductionActivity
 import com.gachon.mowa.ui.login.LoginActivity
 import com.gachon.mowa.ui.main.home.HomeFragment
-import com.gachon.mowa.ui.main.home.HomeLargeFragment
 import com.gachon.mowa.ui.main.speaker.SpeakerFragment
 import com.gachon.mowa.ui.main.phonebook.PhoneBookFragment
-import com.gachon.mowa.ui.main.phonebook.PhoneBookLargeFragment
 import com.gachon.mowa.ui.main.phonebook.content.WelfareCenterFragment
-import com.gachon.mowa.ui.main.speaker.SpeakerLargeFragment
 import com.gachon.mowa.ui.policy.PolicyActivity
-import com.gachon.mowa.ui.sensor.SensorActivity
 import com.gachon.mowa.util.*
 import com.gachon.mowa.util.ApplicationClass.Companion.PERMISSIONS_REQUEST_READ_LOCATION
 import com.gachon.mowa.util.ApplicationClass.Companion.TIME_PICKER_INTERVAL
@@ -96,7 +88,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
     override fun initAfterBinding() {
         homeMenuItem = binding.mainBnvL.mainBnv.menu.getItem(1)
         binding.mainBnvL.mainBnvCenterIv.bringToFront()
-        screenModeSwitch = binding.mainBnvL.mainBnvSc
+//        screenModeSwitch = binding.mainBnvL.mainBnvSc
 
         // 권한 허용
         ActivityCompat.requestPermissions(
@@ -142,9 +134,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
         if (getScreenMode() == 0) {
             replaceFragment(HomeFragment())
         }
-        else {
-            replaceFragment(HomeLargeFragment())
-        }
 
         // 클릭 리스너를 정의한다.
         binding.mainBnvL.mainBnv.setOnItemSelectedListener {
@@ -155,20 +144,12 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
                         replaceFragment(SpeakerFragment())
                         return@setOnItemSelectedListener true
                     }
-                    else {
-                        replaceFragment(SpeakerLargeFragment())
-                        return@setOnItemSelectedListener true
-                    }
                 }
 
                 R.id.bnv_telephone_book_item -> {
                     // phone book 아이콘을 클릭했을 때 PhoneBookFragment를 띄운다.
                     if (getScreenMode() == 0) {
                         replaceFragment(PhoneBookFragment())
-                        return@setOnItemSelectedListener true
-                    }
-                    else {
-                        replaceFragment(PhoneBookLargeFragment())
                         return@setOnItemSelectedListener true
                     }
                 }
@@ -214,12 +195,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
                 // 계정 정보 화면을 띄운다.
                 // 프로필, 이름, 이메일 등을 확인할 수 있다.
                 startNextActivity(AccountActivity::class.java)
-            }
-
-            // 센서/기기 관리
-            R.id.setting_sensor_item -> {
-                // 센서/기기 관리 화면을 띄운다.
-                startNextActivity(SensorActivity::class.java)
             }
 
             // 로그아웃
@@ -276,18 +251,18 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
         }
 
         // 상단의 스위치 버튼을 클릭했을 때
-        binding.mainBnvL.mainBnvSc.setOnClickListener {
-            if (screenModeSwitch.isChecked) {
-                // 만약 screen mode가 1인 경우 (large mode)
-                setScreenMode(0)
-                screenModeSwitch.toggle()
-            }
-            else {
-                // 만약 screen mode가 0인 경우 (default mode)
-                setScreenMode(1)
-                screenModeSwitch.toggle()
-            }
-        }
+//        binding.mainBnvL.mainBnvSc.setOnClickListener {
+//            if (screenModeSwitch.isChecked) {
+//                // 만약 screen mode가 1인 경우 (large mode)
+//                setScreenMode(0)
+//                screenModeSwitch.toggle()
+//            }
+//            else {
+//                // 만약 screen mode가 0인 경우 (default mode)
+//                setScreenMode(1)
+//                screenModeSwitch.toggle()
+//            }
+//        }
     }
 
     /**

@@ -1,5 +1,6 @@
 package com.gachon.mowa.ui.main.phonebook
 
+import androidx.recyclerview.widget.RecyclerView
 import com.gachon.mowa.base.BaseFragment
 import com.gachon.mowa.databinding.FragmentPhoneBookBinding
 import com.google.android.material.tabs.TabLayoutMediator
@@ -18,6 +19,7 @@ class PhoneBookFragment :
     private lateinit var phoneBookVPAdapter: PhoneBookVPAdapter
 
     override fun initAfterBinding() {
+        binding.phoneBookVp.getChildAt(0).overScrollMode = RecyclerView.OVER_SCROLL_NEVER
     }
 
     override fun onResume() {
