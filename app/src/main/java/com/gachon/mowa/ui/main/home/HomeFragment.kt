@@ -2,21 +2,14 @@ package com.gachon.mowa.ui.main.home
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.content.Context.LOCATION_SERVICE
 import android.content.Context.WIFI_SERVICE
-import android.location.Location
-import android.location.LocationListener
-import android.location.LocationManager
 import android.net.ConnectivityManager
 import android.net.wifi.WifiManager
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.annotation.RequiresApi
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import com.gachon.mowa.base.BaseFragment
@@ -28,6 +21,8 @@ import com.gachon.mowa.data.remote.weather.OpenWeatherService
 import com.gachon.mowa.data.remote.weather.OpenWeatherView
 import com.gachon.mowa.databinding.FragmentHomeBinding
 import com.gachon.mowa.util.ApplicationClass.Companion.showToast
+import com.gachon.mowa.util.getLatitude
+import com.gachon.mowa.util.getLongitude
 import com.gachon.mowa.util.getUserEmail
 import com.gachon.mowa.viewmodel.StatsViewModel
 import kotlinx.coroutines.CoroutineScope
@@ -48,14 +43,12 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
 
     private var todayWeather: String = ""
     private var todayTemperature: Float = 0F
-    private var latitude: Double = 0.0
-    private var longitude: Double = 0.0
+//    private var latitude: Double = 0.0
+//    private var longitude: Double = 0.0
     private var wifiSsid: String = ""
     private var dateTime: String = ""
 
 //    private lateinit var binding: FragmentHomeBinding
-    private lateinit var locationManager: LocationManager
-    private lateinit var gpsListener: GPSListener
 
     // API
     private lateinit var openWeatherService: OpenWeatherService
@@ -79,10 +72,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
         // 현재 날짜에 알맞는 글자를 화면에 띄운다.
         binding.homeTitleTv.text = "${month}월의 기록"
 
-        initService()
-        initLocation()
-        initWiFi()
-        initClickListener()
+//        initService()
+//        initLocation()
+//        initWiFi()
+//        initClickListener()
         statsThread.start()
     }
 
@@ -97,6 +90,15 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
             binding.homeSpeakerCountTv.text = activityStats.speakerCount.toString()
             binding.homeFallCountTv.text = activityStats.fallCount.toString()
         })
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        initService()
+        initLocation()
+        initWiFi()
+        initClickListener()
     }
 
     override fun onPause() {
@@ -191,51 +193,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
         CoroutineScope(Dispatchers.Main).launch {
             /* 위치 정보 -> 날씨 정보 API -> 뷰에 반영 */
 
-            // 위치 정보
-            startLocationService()
-
             // 날씨 정보 API
             initOpenWeatherService()
         }
-    }
-
-    /**
-     * 사용자의 위치 정보를 받아오는 리스너
-     */
-    private fun startLocationService() {
-        locationManager = requireActivity().getSystemService(LOCATION_SERVICE) as LocationManager
-
-        try {
-            gpsListener = GPSListener()
-
-            // Main thread에서 만들어져야 한다.
-            locationManager.requestLocationUpdates(
-                LocationManager.NETWORK_PROVIDER,
-                0,
-                0f,
-                gpsListener
-            )
-        } catch (e: SecurityException) {
-            e.printStackTrace()
-        }
-    }
-
-    /**
-     * 사용자 위치 정보(위도, 경도)를 받아온다.
-     * 위치를 받아오는 것이 성공하면 날씨 API를 받아온다.
-     */
-    inner class GPSListener : LocationListener {
-        override fun onLocationChanged(p0: Location) {
-            latitude = p0.latitude
-            longitude = p0.longitude
-
-            locationManager.removeUpdates(gpsListener)
-        }
-        //컴파일 에러 방지
-        override fun onProviderDisabled(provider: String) {}
-        override fun onProviderEnabled(provider: String) {}
-        override fun onStatusChanged(provider: String?, status: Int, extras: Bundle?) {}
-
     }
 
     /**
@@ -244,7 +204,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
      */
     private suspend fun initOpenWeatherService() {
         withContext(Dispatchers.IO) {
-            openWeatherService.getOpenWeather(this@HomeFragment, latitude, longitude)
+            openWeatherService.getOpenWeather(this@HomeFragment, getLatitude(), getLongitude())
         }
     }
 
@@ -311,7 +271,15 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
     private fun initWiFi() {
         CoroutineScope(Dispatchers.Main).launch {
             initWifiManager()
-            binding.homeWifiTv.text = wifiSsid
+
+            // Wi-Fi SSID 값을 가져오지 못했을 때에 맞는 처리를 해준다.
+            Log.d(TAG, "initWiFi/wifiSsid: $wifiSsid")
+            if (wifiSsid == "<unknown ssid>") {
+                initWifiManager()
+            }
+            else {
+                binding.homeWifiTv.text = wifiSsid
+            }
         }
     }
 

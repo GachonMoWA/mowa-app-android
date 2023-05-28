@@ -1,24 +1,16 @@
 package com.gachon.mowa.ui.main.phonebook.content
 
-import android.content.Context
 import android.location.Geocoder
-import android.location.Location
-import android.location.LocationListener
-import android.location.LocationManager
 import android.util.Log
 import android.view.View
-import android.widget.Toast
 import com.gachon.mowa.base.BaseFragment
-import com.gachon.mowa.data.local.AppDatabase
 import com.gachon.mowa.data.remote.welfarecenter.WelfareCenter
 import com.gachon.mowa.data.remote.welfarecenter.WelfareCenterService
 import com.gachon.mowa.data.remote.welfarecenter.WelfareCenterView
 import com.gachon.mowa.databinding.FragmentWelfareCenterBinding
 import com.gachon.mowa.util.ApplicationClass.Companion.showToast
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
+import com.gachon.mowa.util.getLatitude
+import com.gachon.mowa.util.getLongitude
 import net.daum.mf.map.api.MapPOIItem
 import net.daum.mf.map.api.MapPoint
 import net.daum.mf.map.api.MapView
@@ -32,12 +24,8 @@ class WelfareCenterFragment :
         const val TAG = "FRAG/WELFARE-CENTER"
     }
 
-    private var latitude: Double = 0.0
-    private var longitude: Double = 0.0
     private var welfareCenters = ArrayList<WelfareCenter>()
 
-    private lateinit var locationManager: LocationManager
-    private lateinit var gpsListener: GPSListener
     private lateinit var welfareCenterService: WelfareCenterService
     private lateinit var welfareCenterRVAdapter: WelfareCenterRVAdapter
 
@@ -49,8 +37,8 @@ class WelfareCenterFragment :
         super.onResume()
 
         /* 위치 정보 -> 공공 API -> kakao map API -> 뷰에 반영 */
-
-        startLocationService()
+        // 이때 위치 정보는 MainActivity에서 받아와 저장하도록 함.
+        initWelfareCenterService()
     }
 
     override fun onPause() {
@@ -77,69 +65,32 @@ class WelfareCenterFragment :
     }
 
     /**
-     * 사용자의 위치 정보를 받아오는 리스너
-     */
-    private fun startLocationService() {
-        locationManager =
-            requireActivity().getSystemService(Context.LOCATION_SERVICE) as LocationManager
-
-        try {
-            gpsListener = GPSListener()
-
-            // Main thread에서 만들어져야 한다.
-            locationManager.requestLocationUpdates(
-                LocationManager.NETWORK_PROVIDER,
-                0,
-                0f,
-                gpsListener
-            )
-        } catch (e: SecurityException) {
-            e.printStackTrace()
-        }
-    }
-
-    /**
-     * 사용자 위치 정보(위도, 경도)를 받아온다.
-     * 위치를 받아오는 것이 성공하면 날씨 API를 받아온다.
-     */
-    inner class GPSListener : LocationListener {
-        override fun onLocationChanged(p0: Location) {
-            latitude = p0.latitude
-            longitude = p0.longitude
-
-            Log.d(TAG, "GPSListener/onLocationChanged/latitude: $latitude, longitude: $longitude")
-
-            locationManager.removeUpdates(gpsListener)
-
-            initWelfareCenterService()
-        }
-    }
-
-    /**
      * 공공 API 서비스를 호출한다.
      */
     private fun initWelfareCenterService() {
-        Log.d(TAG, "initWelfareCenterService/latitude: $latitude, longitude: $longitude")
+        Log.d(TAG, "initWelfareCenterService/latitude: ${getLatitude()}, longitude: ${getLongitude()}")
         welfareCenterService = WelfareCenterService()
 
         /* 역지오코딩 (위도, 경도 -> 시군구명) */
 
         val geoCoder = Geocoder(requireContext(), Locale.getDefault())
-        val addresses = geoCoder.getFromLocation(latitude, longitude, 10)
+        val addresses = geoCoder.getFromLocation(getLatitude(), getLongitude(), 10)
         Log.d(TAG, "initWelfareCenterService/addresses: $addresses")
 
-        if (addresses.size != 0) {
-            val address = addresses[0]
+        if (addresses != null) {
+            if (addresses.size != 0) {
+                val address = addresses[0]
 
-            Log.d(
-                TAG,
-                "initWelfareCenterService/${address.adminArea} ${address.locality} ${address.thoroughfare}"
-            )
+                Log.d(
+                    TAG,
+                    "initWelfareCenterService/${address.adminArea} ${address.locality} ${address.thoroughfare}"
+                )
 
-            // API 호출
-            welfareCenterService.getWelfareCenters(this@WelfareCenterFragment, address.locality)
-        } else {
-            Log.d(TAG, "initWelfareCenterService/API 호출 실패")
+                // API 호출
+                welfareCenterService.getWelfareCenters(this@WelfareCenterFragment, address.locality)
+            } else {
+                Log.d(TAG, "initWelfareCenterService/API 호출 실패")
+            }
         }
     }
 

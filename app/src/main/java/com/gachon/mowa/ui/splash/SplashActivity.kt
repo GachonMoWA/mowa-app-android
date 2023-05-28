@@ -8,10 +8,8 @@ import com.gachon.mowa.base.BaseActivity
 import com.gachon.mowa.databinding.ActivitySplashBinding
 import com.gachon.mowa.ui.introduction.IntroductionActivity
 import com.gachon.mowa.ui.login.LoginActivity
-import com.gachon.mowa.ui.login.LoginLargeActivity
 import com.gachon.mowa.ui.main.MainActivity
 import com.gachon.mowa.util.getGuideMode
-import com.gachon.mowa.util.getScreenMode
 import com.gachon.mowa.util.getUserId
 
 /**
@@ -38,23 +36,11 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>(ActivitySplashBinding
 
         // 2초 뒤에 MainActivity를 띄어줍니다.
         Handler(Looper.getMainLooper()).postDelayed({
-            if (getScreenMode() == 0) {
-                // Screen mode 0일 경우 (default)
-                if (getUserId().equals("")) {
-                    startNextActivityWithClear(LoginActivity::class.java)
-                } else {
-                    startNextActivityWithClear(MainActivity::class.java)
-                }
-
+            if (getUserId().equals("")) {
+                startNextActivityWithClear(LoginActivity::class.java)
             } else {
-                // Screen mode 1일 경우 (large)
-                if (getUserId().equals("")) {
-                    startNextActivityWithClear(LoginLargeActivity::class.java)
-                } else {
-                    startNextActivityWithClear(MainActivity::class.java)
-                }
+                startNextActivityWithClear(MainActivity::class.java)
             }
-
         }, 2000)
     }
 }
