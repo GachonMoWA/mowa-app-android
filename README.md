@@ -26,9 +26,9 @@
 
 | Student number | Student name | Role | Link |
 | -------------- | ------------ | ---- | ---- |
-| 2018 | Yu Gyeongjun | AI Speaker | |
-| 2018 | Lim Chanho | AI Speaker | |
-| 2018 | Pio Jisung | Wi-Fi Sensing | |
+| 201835475 | Yu Gyeongjun | AI Speaker | |
+| 201835510 | Lim Chanho | AI Speaker | |
+| 201835541 | Pio Jisung | Wi-Fi Sensing | |
 | 202035328 | Nam Seonwoo | Android | |
 
 <br/>
