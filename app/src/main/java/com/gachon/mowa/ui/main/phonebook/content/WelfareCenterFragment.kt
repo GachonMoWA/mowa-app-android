@@ -85,7 +85,6 @@ class WelfareCenterFragment :
                     TAG,
                     "initWelfareCenterService/${address.adminArea} ${address.locality} ${address.thoroughfare}"
                 )
-
                 // API 호출
                 welfareCenterService.getWelfareCenters(this@WelfareCenterFragment, address.locality)
             } else {

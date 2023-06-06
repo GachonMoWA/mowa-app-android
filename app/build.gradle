@@ -15,6 +15,7 @@ def dialogflowCredentialDir = properties.getProperty('dialogflow.credential.dir'
 def serverBaseUrl = properties.getProperty('server.base.url')
 def openWeatherBaseUrl = properties.getProperty('open.weather.base.url')
 def welfareCenterBaseUrl = properties.getProperty('welfare.center.base.url')
+def firebaseBaseUrl = properties.getProperty('firebase.base.url')
 
 // API key
 def kakaoMapApiKey = properties.getProperty('kakao.map.api.key')
@@ -39,6 +40,7 @@ android {
         buildConfigField "String", "SERVER_BASE_URL", "\"$serverBaseUrl\""
         buildConfigField "String", "OPEN_WEATHER_BASE_URL", "\"$openWeatherBaseUrl\""
         buildConfigField "String", "WELFARE_CENTER_BASE_URL", "\"$welfareCenterBaseUrl\""
+        buildConfigField "String", "FIREBASE_BASE_URL", "\"$firebaseBaseUrl\""
 
         // API key
         buildConfigField "String", "KAKAO_MAP_API_KEY", "\"$kakaoMapApiKey\""
@@ -104,6 +106,9 @@ dependencies {
     // Firebase login
     implementation 'com.google.firebase:firebase-auth'
     implementation 'com.google.android.gms:play-services-auth:20.4.1'
+
+    // Firebase real time database
+    implementation 'com.google.firebase:firebase-database-ktx'
 
     // Retrofit
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"

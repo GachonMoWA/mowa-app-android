@@ -32,6 +32,21 @@ fun setUserEmail(userEmail: String) {
 fun getUserEmail(): String? =
     ApplicationClass.mSharedPreferences.getString(ApplicationClass.TAG_USER_EMAIL, "")
 
+/**
+ * User name 정보를 SharedPreferences에 저장합니다.
+ */
+fun setUserName(userName: String) {
+    val editor = ApplicationClass.mSharedPreferences.edit()
+    editor.putString(ApplicationClass.TAG_USER_NAME, userName)
+    editor.apply()
+}
+
+/**
+ * User name 정보를 SharedPreferences로부터 가져옵니다.
+ */
+fun getUserName(): String? =
+    ApplicationClass.mSharedPreferences.getString(ApplicationClass.TAG_USER_NAME, "")
+
 
 /**
  * Screen mode 값을 SharedPreferences에 저장합니다.

@@ -14,8 +14,10 @@ import com.gachon.mowa.data.remote.user.UserView
 import com.gachon.mowa.databinding.ActivityIntroBinding
 import com.gachon.mowa.ui.main.MainActivity
 import com.gachon.mowa.util.ApplicationClass.Companion.showToast
+import com.gachon.mowa.util.getUserName
 import com.gachon.mowa.util.setUserEmail
 import com.gachon.mowa.util.setUserId
+import com.gachon.mowa.util.setUserName
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -171,6 +173,7 @@ class LoginActivity : BaseActivity<ActivityIntroBinding>(ActivityIntroBinding::i
 
                     setUserId(mAuth.uid!!)
                     setUserEmail(mAuth.currentUser?.email!!)
+                    setUserName(mAuth.currentUser?.displayName!!)
 
                     startNextActivityWithClear(MainActivity::class.java)
                 } else {
