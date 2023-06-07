@@ -5,6 +5,7 @@ import android.content.Context
 import android.location.Location
 import android.location.LocationListener
 import android.location.LocationManager
+import android.os.Bundle
 import android.util.Log
 import android.view.*
 import android.widget.ImageView
@@ -440,5 +441,12 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
 
             locationManager.removeUpdates(gpsListener)
         }
+
+
+        override fun onProviderDisabled(provider: String) {}
+        override fun onProviderEnabled(provider: String) {}
+        override fun onStatusChanged(provider: String?, status: Int, extras: Bundle?) {}
     }
+
+
 }

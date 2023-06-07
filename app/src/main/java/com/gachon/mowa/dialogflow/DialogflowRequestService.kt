@@ -2,6 +2,8 @@ package com.gachon.mowa.dialogflow
 
 import android.os.AsyncTask
 import android.util.Log
+import com.gachon.mowa.util.getUserEmail
+import com.gachon.mowa.util.getUserName
 import com.google.cloud.dialogflow.v2.DetectIntentRequest
 import com.google.cloud.dialogflow.v2.DetectIntentResponse
 import com.google.cloud.dialogflow.v2.QueryInput
@@ -31,10 +33,10 @@ class DialogflowRequestService(
             var parameters=Struct.newBuilder()
 
 
-            //테스트용, 실제 사용자의 구글 계정 이메일과 이름을 가져와 사용할 것
+
             parameters.putFields("from",Value.newBuilder().setStringValue("AndroidMoWA").build())
-            parameters.putFields("email",Value.newBuilder().setStringValue("gachon.mowa@gmail.com").build())
-            parameters.putFields("name",Value.newBuilder().setStringValue("androidMowaTester").build())
+            parameters.putFields("email",Value.newBuilder().setStringValue(getUserEmail()).build())
+            parameters.putFields("name",Value.newBuilder().setStringValue(getUserName()).build())
 
 
             queryParametersBuilder.setPayload(parameters)

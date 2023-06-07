@@ -12,8 +12,15 @@ import com.gachon.mowa.R
 import com.gachon.mowa.base.BaseFragment
 import com.gachon.mowa.data.local.AppDatabase
 import com.gachon.mowa.data.local.phonebook.PhoneBook
+import com.gachon.mowa.data.remote.dialogflow.FirstResponder
+import com.gachon.mowa.data.remote.dialogflow.FirstResponderService
 import com.gachon.mowa.databinding.FragmentMyPhoneBookBinding
 import com.gachon.mowa.databinding.ItemPhoneBookPrivateBinding
+import com.gachon.mowa.util.getUserEmail
+import com.gachon.mowa.util.getUserId
+import com.google.gson.GsonBuilder
+import com.google.gson.reflect.TypeToken
+import org.json.JSONObject
 
 class MyPhoneBookFragment :
     BaseFragment<FragmentMyPhoneBookBinding>(FragmentMyPhoneBookBinding::inflate) {
@@ -27,11 +34,13 @@ class MyPhoneBookFragment :
     private lateinit var cursor: Cursor
     private lateinit var roomDatabase: AppDatabase
     private lateinit var privateRVAdapter: MyPhoneBookRVAdapter
+    private lateinit var firstResponderService: FirstResponderService
 
     override fun initAfterBinding() {
         roomDatabase = AppDatabase.getInstance(requireContext())!!
         phoneNumbers.clear()
         phoneNumbers.addAll(roomDatabase.phoneBookDao().getAll() as ArrayList)
+        firstResponderService = FirstResponderService()
     }
 
     override fun onResume() {
@@ -119,6 +128,11 @@ class MyPhoneBookFragment :
                             "initRecyclerView/onCheckBoxClick/phoneNumbers[itemPosition]: ${phoneNumbers[itemPosition]}"
                         )
                         roomDatabase.phoneBookDao().update(phoneNumbers[itemPosition])
+
+
+                        updateFirstResponder(phoneNumbers.filter { it.isChecked ==1 })
+
+
                     }
 
                     override fun onCallClick(itemPosition: Int) {
@@ -157,5 +171,18 @@ class MyPhoneBookFragment :
         binding.phoneBookPrivateUpdateIv.setOnClickListener {
             initPhoneBook()
         }
+    }
+
+    /**
+     * 파이어베이스 리얼타임 데이터베이스에 긴급 연락처 업데이트
+     */
+    private fun updateFirstResponder(firstResponder : List<PhoneBook>){
+        val list = ArrayList<FirstResponder>()
+        firstResponder.forEach{
+            val responder = FirstResponder(it.name.toString(),it.phoneNumber.toString())
+            list.add(responder)
+        }
+        firstResponderService.updateFirstResponder(getUserId().toString(),list)
+
     }
 }
