@@ -5,15 +5,15 @@
 <br/>
 
 <!-- Skill: Android, Android Studio, Kotlin, Gradle, Git, GitHub, Amazon RDS -->
-
-<img src="https://img.shields.io/badge/android-3DDC84?style=for-the-badge&logo=android&logoColor=white">
-<img src="https://img.shields.io/badge/androidstudio-3DDC84?style=for-the-badge&logo=androidstudio&logoColor=white">
-<img src="https://img.shields.io/badge/kotlin-7F52FF?style=for-the-badge&logo=kotlin&logoColor=white">
-<img src="https://img.shields.io/badge/gradle-02303A?style=for-the-badge&logo=gradle&logoColor=white">
-<img src="https://img.shields.io/badge/git-F05032?style=for-the-badge&logo=git&logoColor=white">
-<img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white">
-<img src="https://img.shields.io/badge/amazonrds-527FFF?style=for-the-badge&logo=amazonrds&logoColor=white">
-
+<div>
+    <img src="https://img.shields.io/badge/android-3DDC84?style=for-the-badge&logo=android&logoColor=white">
+    <img src="https://img.shields.io/badge/androidstudio-3DDC84?style=for-the-badge&logo=androidstudio&logoColor=white">
+    <img src="https://img.shields.io/badge/kotlin-7F52FF?style=for-the-badge&logo=kotlin&logoColor=white">
+    <img src="https://img.shields.io/badge/gradle-02303A?style=for-the-badge&logo=gradle&logoColor=white">
+    <img src="https://img.shields.io/badge/git-F05032?style=for-the-badge&logo=git&logoColor=white">
+    <img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white">
+    <img src="https://img.shields.io/badge/amazonrds-527FFF?style=for-the-badge&logo=amazonrds&logoColor=white">
+</div>
 <br/>
 <br/>
 
@@ -216,15 +216,10 @@ Here, we introduce the core functions of the MoWA application. It shows a screen
 - Phone book - Check a Phone Book & register emergency contacts
 
     <div style="display: flex; flex-direction: row;">
+        <img src="https://github.com/GachonMoWA/mowa-app-android/assets/77925666/db5d7498-913e-4c47-959f-8221d9e95b47" height="400px" />
 
-    <img src="https://github.com/GachonMoWA/mowa-app-android/assets/77925666/db5d7498-913e-4c47-959f-8221d9e95b47" height="400px" />
-
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-    <img src="https://github.com/GachonMoWA/mowa-app-android/assets/77925666/8f938326-02d3-4002-98ef-7557da98d600" height="400px" />
-
+        <img src="https://github.com/GachonMoWA/mowa-app-android/assets/77925666/8f938326-02d3-4002-98ef-7557da98d600" height="400px" />
     </div>
-
 <br/>
 
 - Setting - Allow the notification permission
