@@ -217,7 +217,6 @@ Here, we introduce the core functions of the MoWA application. It shows a screen
 
     <div style="display: flex; flex-direction: row;">
         <img src="https://github.com/GachonMoWA/mowa-app-android/assets/77925666/db5d7498-913e-4c47-959f-8221d9e95b47" height="400px" />
-
         <img src="https://github.com/GachonMoWA/mowa-app-android/assets/77925666/8f938326-02d3-4002-98ef-7557da98d600" height="400px" />
     </div>
 <br/>
