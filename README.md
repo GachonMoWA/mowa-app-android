@@ -155,24 +155,13 @@ Here, we introduce the core functions of the MoWA application. It shows a screen
 - Start (Splash & Guide)
   
     <div style="display: flex; flex-direction: row;">
-
-    <img src="https://github.com/GachonMoWA/mowa-app-android/assets/77925666/d90025ef-d575-45c2-b032-4585ff8c3f23" height="400px" />
-
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    
-    <img src="https://github.com/GachonMoWA/mowa-app-android/assets/77925666/a2aa43be-9594-44f0-9641-5d3fa2dec9ac" height="400px" />
-
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-    <img src="https://github.com/GachonMoWA/mowa-app-android/assets/77925666/270fcb4e-14ef-4bc2-b6ed-98f807c90a25" height="400px" />
-
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-    <img src="https://github.com/GachonMoWA/mowa-app-android/assets/77925666/2389fc96-135c-4abd-9086-7299944bf395" height="400px" />
-
+        <img src="https://github.com/GachonMoWA/mowa-app-android/assets/77925666/d90025ef-d575-45c2-b032-4585ff8c3f23" height="400px"/> 
+        <img src="https://github.com/GachonMoWA/mowa-app-android/assets/77925666/a2aa43be-9594-44f0-9641-5d3fa2dec9ac" height="400px"/> 
+        <img src="https://github.com/GachonMoWA/mowa-app-android/assets/77925666/270fcb4e-14ef-4bc2-b6ed-98f807c90a25" height="400px"/> 
+        <img src="https://github.com/GachonMoWA/mowa-app-android/assets/77925666/2389fc96-135c-4abd-9086-7299944bf395" height="400px"/> 
     </div>
 
-<br/>
+    <br/>
 
 - Login - Google login
 
